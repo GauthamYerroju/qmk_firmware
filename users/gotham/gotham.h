@@ -66,7 +66,7 @@ enum userspace_layers {
     _ADJUST,
     _MOUSE,
 };
-#define LAYOUT_COUNT _GAME // Used for layout cycling, this should be the layer immediately after the last keyboard layout layer.
+#define LAYOUT_COUNT _GAME  // Used for layout cycling, this should be the layer immediately after the last keyboard layout layer.
 
 bool is_mac_mode(void);
 void set_mac_mode(bool);
