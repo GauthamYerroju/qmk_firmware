@@ -17,6 +17,7 @@
 #pragma once
 
 #define IGNORE_MOD_TAP_INTERRUPT
+#define PERMISSIVE_HOLD
 
 #define QMK_KEYS_PER_SCAN 4 // Helps with combos and layer/tap mod/tap keys
 

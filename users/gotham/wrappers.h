@@ -108,7 +108,7 @@ For instance Tap/Hold for Control on all of the layouts
 #define __________________FN_RIGHT_________________ KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10
 
 #define __________________NUMPAD_1_________________ KC_NO,   KC_1,    KC_2,    KC_3,    KC_NO
-#define __________________NUMPAD_2_________________ KC_0,    KC_4,    KC_5,    KC_6,    KC_0s
+#define __________________NUMPAD_2_________________ KC_0,    KC_4,    KC_5,    KC_6,    KC_0
 #define __________________NUMPAD_3_________________ KC_NO,   KC_7,    KC_8,    KC_9,    KC_NO
 #define __________________FN_PAD_1_________________ KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_NO
 #define __________________FN_PAD_2_________________ KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_NO
@@ -143,6 +143,8 @@ For instance Tap/Hold for Control on all of the layouts
 #define _________________GAMENUM_R2________________ __________________FN_PAD_2_________________
 #define _________________GAMENUM_R3________________ __________________FN_PAD_3_________________
 
+#define _________________GAMENAV_1_________________ _______, _______, KC_UP,   _______, _______
+#define _________________GAMENAV_2_________________ _______, KC_LEFT, KC_DOWN, KC_RIGHT,_______
 
 /*
  * Layers
