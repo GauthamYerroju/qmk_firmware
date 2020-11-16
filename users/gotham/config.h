@@ -19,15 +19,15 @@
 #define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
 
-#define QMK_KEYS_PER_SCAN 4 // Helps with combos and layer/tap mod/tap keys
+#define QMK_KEYS_PER_SCAN 4  // Helps with combos and layer/tap mod/tap keys
 
 #define TAP_CODE_DELAY 5
 #define TAPPING_TERM 200
 
 // Disable default layer switching to prevent accidents
 #ifdef COMMAND_ENABLE
-    #define MAGIC_KEY_SWITCH_LAYER_WITH_FKEYS false
-    #define MAGIC_KEY_SWITCH_LAYER_WITH_NKEYS false
+#    define MAGIC_KEY_SWITCH_LAYER_WITH_FKEYS false
+#    define MAGIC_KEY_SWITCH_LAYER_WITH_NKEYS false
 #endif
 
 #ifdef COMBO_ENABLE

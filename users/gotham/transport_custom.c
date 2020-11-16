@@ -155,10 +155,10 @@ void transport_slave_init(void) { i2c_slave_init(SLAVE_I2C_ADDRESS); }
 
 typedef struct _Serial_s2m_buffer_t {
     // TODO: if MATRIX_COLS > 8 change to uint8_t packed_matrix[] for pack/unpack
-    matrix_row_t                 smatrix[ROWS_PER_HAND];
+    matrix_row_t smatrix[ROWS_PER_HAND];
 
 #    ifdef ENCODER_ENABLE
-    uint8_t                      encoder_state[NUMBER_OF_ENCODERS];
+    uint8_t encoder_state[NUMBER_OF_ENCODERS];
 #    endif
 
 #    ifdef THUMBSTICK_ENABLE
@@ -169,21 +169,21 @@ typedef struct _Serial_s2m_buffer_t {
 
 typedef struct _Serial_m2s_buffer_t {
 #    ifdef BACKLIGHT_ENABLE
-    uint8_t                      backlight_level;
+    uint8_t backlight_level;
 #    endif
 #    ifdef WPM_ENABLE
-    uint8_t                      current_wpm;
+    uint8_t current_wpm;
 #    endif
 #    ifdef ENCODER_ENABLE
-    uint8_t                      encoder_state[NUMBER_OF_ENCODERS];
+    uint8_t encoder_state[NUMBER_OF_ENCODERS];
 #        ifndef SPLIT_KEYBOARD
-    encoder_mode_t               encoder_modes[NUMBER_OF_ENCODERS];
+    encoder_mode_t encoder_modes[NUMBER_OF_ENCODERS];
 #        else
     encoder_mode_t encoder_modes[NUMBER_OF_ENCODERS * 2];
 #        endif
 #    endif
 #    if defined(OLED_DRIVER_ENABLE) && defined(SPLIT_KEYBOARD)
-    bool                         oled_reset_flag;
+    bool oled_reset_flag;
 #    endif
 #    ifdef THUMBSTICK_ENABLE
     thumbstick_transport_state_t thumbstick_state;

@@ -43,58 +43,70 @@ enum encoder_offsets {
     K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A  \
   ) \
   LAYOUT_wrapper( \
-      _______, K01,         K02,         K03,         K04,         K05,                                        K06, K07,         K08,         K09,         K0A,         KC_BSLS, \
-      _______, LCTL_T(K11), LALT_T(K12), LGUI_T(K13), LSFT_T(K14), K15,                                        K16, LSFT_T(K17), LGUI_T(K18), LALT_T(K19), RCTL_T(K1A), KC_QUOT, \
-      _______, LCTL_T(K21), LALT_T(K22), K23,         K24,         K25, KC_CCCV, TG_GAME,  TMB_MODE, TMB_MODE, K26, K27,         K28,         RALT_T(K29), RCTL_T(K2A), _______, \
+      _______, K01, K02, K03, K04, K05,                                        K06, K07, K08, K09, K0A, KC_BSLS, \
+      _______, K11, K12, K13, K14, K15,                                        K16, K17, K18, K19, K1A, KC_QUOT, \
+      _______, K21, K22, K23, K24, K25, KC_CCCV, TG_GAME,  TMB_MODE, TMB_MODE, K26, K27, K28, K29, K2A, _______, \
+          ENC_MODE_L, KC_LGUI, SP_LOWR, TB_RAIS, KC_LCTL,  KC_RCTL,  EN_LOWR,  BK_RAIS, MS_DEL, ENC_MODE_R \
+    )
+#define LAYOUT_kyria_mods( \
+    K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, \
+    K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, \
+    K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A  \
+  ) \
+  LAYOUT_wrapper( \
+      _______, K01,         K02,         K03, K04, K05,                                        K06, K07, K08,         K09,         K0A, KC_BSLS, \
+      _______, LSFT_T(K11), K12,         K13, K14, K15,                                        K16, K17, K18,         K19, RSFT_T(K1A), KC_QUOT, \
+      _______, LCTL_T(K21), LALT_T(K22), K23, K24, K25, KC_CCCV, TG_GAME,  TMB_MODE, TMB_MODE, K26, K27, K28, RALT_T(K29), RCTL_T(K2A), _______, \
                           ENC_MODE_L, KC_LGUI, SP_LOWR, TB_RAIS, KC_LCTL,  KC_RCTL,  EN_LOWR,  BK_RAIS, MS_DEL, ENC_MODE_R \
     )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_kyria_base_wrapper(...)       LAYOUT_kyria_base(__VA_ARGS__)
+#define LAYOUT_kyria_mods_wrapper(...)       LAYOUT_kyria_mods(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [_QWERTY] = LAYOUT_kyria_base_wrapper(
+    [_QWERTY] = LAYOUT_kyria_mods_wrapper(
         _________________QWERTY_L1_________________, _________________QWERTY_R1_________________,
         _________________QWERTY_L2_________________, _________________QWERTY_R2_________________,
         _________________QWERTY_L3_________________, _________________QWERTY_R3_________________
     ),
 #ifdef ENABLE_LAYOUT_COLEMAK
-    [_COLEMAK] = LAYOUT_kyria_base_wrapper(
+    [_COLEMAK] = LAYOUT_kyria_mods_wrapper(
         _________________COLEMAK_L1________________, _________________COLEMAK_R1________________,
         _________________COLEMAK_L2________________, _________________COLEMAK_R2________________,
         _________________COLEMAK_L3________________, _________________COLEMAK_R3________________
     ),
 #endif
 #ifdef ENABLE_LAYOUT_COLEMAK_DH
-    [_COLEMAK_DH] = LAYOUT_kyria_base_wrapper(
+    [_COLEMAK_DH] = LAYOUT_kyria_mods_wrapper(
         ______________COLEMAK_MOD_DH_L1____________, ______________COLEMAK_MOD_DH_R1____________,
         ______________COLEMAK_MOD_DH_L2____________, ______________COLEMAK_MOD_DH_R2____________,
         ______________COLEMAK_MOD_DH_L3____________, ______________COLEMAK_MOD_DH_R3____________
     ),
 #endif
 #ifdef ENABLE_LAYOUT_COLEMAK_DHM
-    [_COLEMAK_DHM] = LAYOUT_kyria_base_wrapper(
+    [_COLEMAK_DHM] = LAYOUT_kyria_mods_wrapper(
         _____________COLEMAK_MOD_DHM_L1____________, _____________COLEMAK_MOD_DHM_R1____________,
         _____________COLEMAK_MOD_DHM_L2____________, _____________COLEMAK_MOD_DHM_R2____________,
         _____________COLEMAK_MOD_DHM_L3____________, _____________COLEMAK_MOD_DHM_R3____________
     ),
 #endif
 #ifdef ENABLE_LAYOUT_DVORAK
-    [_DVORAK] = LAYOUT_kyria_base_wrapper(
+    [_DVORAK] = LAYOUT_kyria_mods_wrapper(
         _________________DVORAK_L1_________________, _________________DVORAK_R1_________________,
         _________________DVORAK_L2_________________, _________________DVORAK_R2_________________,
         _________________DVORAK_L3_________________, _________________DVORAK_R3_________________
     ),
 #endif
 #ifdef ENABLE_LAYOUT_WORKMAN
-    [_WORKMAN] = LAYOUT_kyria_base_wrapper(
+    [_WORKMAN] = LAYOUT_kyria_mods_wrapper(
         _________________WORKMAN_L1________________, _________________WORKMAN_R1________________,
         _________________WORKMAN_L2________________, _________________WORKMAN_R2________________,
         _________________WORKMAN_L3________________, _________________WORKMAN_R3________________
     ),
 #endif
 #ifdef ENABLE_LAYOUT_NORMAN
-    [_NORMAN] = LAYOUT_kyria_base_wrapper(
+    [_NORMAN] = LAYOUT_kyria_mods_wrapper(
         _________________NORMAN_L1_________________, _________________NORMAN_R1_________________,
         _________________NORMAN_L2_________________, _________________NORMAN_R2_________________,
         _________________NORMAN_L3_________________, _________________NORMAN_R3_________________
@@ -247,7 +259,7 @@ bool process_record_keymap_oled(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 #    endif  // OLED_ANIMATIONS_ENABLE
-#endif      // OLED_DRIVER_ENABLE
+#endif  // OLED_DRIVER_ENABLE
 
 #ifdef ENCODER_ENABLE
 void encoder_init_keymap(void) {

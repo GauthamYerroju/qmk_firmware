@@ -164,9 +164,7 @@ void render_layer(void) {
     oled_write_ln_P(((!layer || (layer == _GAME)) ? PSTR(OLED_STR_LAYER_NONE) : layer_names[layer]), false);
 }
 
-void render_mac_mode(void) {
-    oled_write_ln(is_mac_mode() ? OLED_STR_MAC_MODE : "", false);
-}
+void render_mac_mode(void) { oled_write_ln(is_mac_mode() ? OLED_STR_MAC_MODE : "", false); }
 
 #ifdef ENCODER_ENABLE
 void render_encoder(uint8_t index) {

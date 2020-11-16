@@ -16,10 +16,7 @@
 
 #include "gotham.h"
 
-
-bool is_mac_mode(void) {
-    return keymap_config.swap_lctl_lgui;
-}
+bool is_mac_mode(void) { return keymap_config.swap_lctl_lgui; }
 
 void set_mac_mode(bool flag) {
     keymap_config.swap_lctl_lgui = flag;
