@@ -17,6 +17,7 @@
 #include <string.h>
 #include <stddef.h>
 
+#include "config.h"
 #include "matrix.h"
 #include "quantum.h"
 
