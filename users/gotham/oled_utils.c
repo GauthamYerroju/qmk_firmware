@@ -16,9 +16,6 @@
 
 #include "oled_utils.h"
 
-#ifdef SPLIT_KEYBOARD
-static bool is_master;
-#endif
 #if OLED_CUSTOM_TIMEOUT > 0
 static uint32_t oled_sleep_timer;
 #    ifdef SPLIT_KEYBOARD
@@ -45,7 +42,7 @@ const char PROGMEM layer_names[][OLED_CHAR_COUNT] = {
     [_WORKMAN] = OLED_STR_WORKMAN,
 #endif
 #ifdef ENABLE_LAYOUT_NORMAN
-    [_NORMAN]  = OLED_CHAR_COUNTORMAN,
+    [_NORMAN]  = OLED_STR_NORMAN,
 #endif
     [_GAME]    = OLED_STR_GAME,
     [_GAMENAV] = OLED_STR_GAMENAV,
@@ -97,12 +94,9 @@ void oled_reset_flag_set(bool value) { oled_reset_flag = value; }
 #    endif
 #endif
 
-__attribute__((weak)) oled_rotation_t oled_init_keymap(oled_rotation_t rotation) { return OLED_ROTATION_0; }
+__attribute__((weak)) oled_rotation_t oled_init_keymap(oled_rotation_t rotation) { return OLED_ROTATION; }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-#ifdef SPLIT_KEYBOARD
-    is_master = is_keyboard_master();
-#endif
 #if OLED_CUSTOM_TIMEOUT > 0
 #    ifdef SPLIT_KEYBOARD
     oled_reset_flag = false;
@@ -145,29 +139,29 @@ void oled_task_user(void) {
     render_status();
 }
 
-void render_keyboard_info(void) {
+__attribute__((weak)) void render_keyboard_info(void) {
     oled_advance_page(false);
     oled_write_ln_P(PSTR(QMK_KEYBOARD), false);
     oled_write_ln_P(PSTR(QMK_KEYMAP), false);
 }
 
-void render_layout(void) {
+__attribute__((weak)) void render_layout(void) {
     oled_write_P(PSTR(OLED_STR_LAYOUT), false);
     uint32_t layer = get_highest_layer(layer_state);
     layer          = ((layer == _GAME) || (layer == _GAMENUM) || (layer == _GAMENAV)) ? _GAME : get_highest_layer(default_layer_state);
     oled_write_ln_P(layer_names[layer], false);
 }
 
-void render_layer(void) {
+__attribute__((weak)) void render_layer(void) {
     oled_write_P(PSTR(OLED_STR_LAYER), false);
     uint32_t layer = get_highest_layer(layer_state);
     oled_write_ln_P(((!layer || (layer == _GAME)) ? PSTR(OLED_STR_LAYER_NONE) : layer_names[layer]), false);
 }
 
-void render_mac_mode(void) { oled_write_ln(is_mac_mode() ? OLED_STR_MAC_MODE : "", false); }
+__attribute__((weak)) void render_mac_mode(void) { oled_write_ln(is_mac_mode() ? OLED_STR_MAC_MODE : "", false); }
 
 #ifdef ENCODER_ENABLE
-void render_encoder(uint8_t index) {
+__attribute__((weak)) void render_encoder(uint8_t index) {
     char encoder_index[OLED_CHAR_COUNT] = "";
     snprintf(encoder_index, OLED_CHAR_COUNT, OLED_STR_ENC_MODE, index + 1);
     oled_write(encoder_index, false);
@@ -180,7 +174,7 @@ static pin_t encoders_pad[] = ENCODERS_PAD_A;
 #    else
 #        define NUMBER_OF_ENCODERS (sizeof(encoders_pad) / sizeof(pin_t))
 #    endif
-void render_encoders(void) {
+__attribute__((weak)) void render_encoders(void) {
     for (uint8_t i = 0; i < NUMBER_OF_ENCODERS; i++) {
         render_encoder(i);
     }
@@ -188,7 +182,7 @@ void render_encoders(void) {
 #endif
 
 #ifdef THUMBSTICK_ENABLE
-void render_thumbstick(void) {
+__attribute__((weak)) void render_thumbstick(void) {
     oled_write_P(PSTR(OLED_STR_THUMBSTICK_MODE), false);
     oled_write_ln_P(thumbstick_mode_names[thumbstick_mode_get()], false);
 }
@@ -218,7 +212,7 @@ __attribute__((weak)) void render_status_secondary(void) {
 #endif
 }
 
-void render_status(void) {
+__attribute__((weak)) void render_status(void) {
 #ifdef SPLIT_KEYBOARD
     if (is_master)
 #endif

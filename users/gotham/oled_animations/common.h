@@ -19,6 +19,7 @@
 #include "timer.h"
 #include "progmem.h"
 #include "oled_driver.h"
+#include "../oled_utils.h"
 #include "lib/lib8tion/lib8tion.h"
 #ifdef CONSOLE_ENABLE
 #    include "print.h"
