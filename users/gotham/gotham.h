@@ -38,6 +38,10 @@
 #    include "pointing_devices.h"
 #endif
 
+#if defined(SPLIT_KEYBOARD) && !defined(is_master)
+#    define is_master is_keyboard_master()
+#endif
+
 enum userspace_layers {
     _QWERTY = 0,
 #ifdef ENABLE_LAYOUT_COLEMAK

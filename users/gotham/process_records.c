@@ -45,7 +45,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 } else {
                     if (timer_elapsed(layout_timer) > TAPPING_TERM) {  // Hold, QWERTY
                         set_single_persistent_default_layer(_QWERTY);
-                    } else {  // Tap, cycle layout
+                    } else {  // Tap, cycle between available layouts
                         uint32_t new_default_layer = _QWERTY + (get_highest_layer(default_layer_state) + 1) % LAYOUT_COUNT;
                         set_single_persistent_default_layer(new_default_layer);
                     }

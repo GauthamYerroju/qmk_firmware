@@ -46,7 +46,7 @@
 #    define OLED_STR_COLEMAK_DHM "Colemak DHm"
 #    define OLED_STR_DVORAK "Dvorak"
 #    define OLED_STR_WORKMAN "Workman"
-#    define OLED_CHAR_COUNTORMAN "Norman"
+#    define OLED_STR_NORMAN "Norman"
 #    define OLED_STR_GAME "Game"
 #    define OLED_STR_GAMENAV "Arrows"
 #    define OLED_STR_GAMENUM "Numbers"
@@ -81,7 +81,7 @@
 #    define OLED_STR_COLEMAK_DHM "ColDm"
 #    define OLED_STR_DVORAK "Dvrk"
 #    define OLED_STR_WORKMAN "Wkmn"
-#    define OLED_CHAR_COUNTORMAN "Norm"
+#    define OLED_STR_NORMAN "Norm"
 #    define OLED_STR_GAME "Game"
 #    define OLED_STR_GAMENAV "Nav"
 #    define OLED_STR_GAMENUM "Num"
@@ -116,6 +116,18 @@ void oled_sleep_timer_reset(void);
 bool oled_reset_flag_get(void);
 void oled_reset_flag_set(bool value);
 #    endif
+#endif
+
+#ifndef OLED_ROTATION
+#    define OLED_ROTATION OLED_ROTATION_0
+#endif
+
+#if OLED_ROTATION==OLED_ROTATION_90 || OLED_ROTATION==OLED_ROTATION_270
+#    define OLED_FINAL_WIDTH OLED_DISPLAY_HEIGHT
+#    define OLED_FINAL_HEIGHT OLED_DISPLAY_WIDTH
+#else
+#    define OLED_FINAL_WIDTH OLED_DISPLAY_WIDTH
+#    define OLED_FINAL_HEIGHT OLED_DISPLAY_HEIGHT
 #endif
 
 oled_rotation_t oled_init_keymap(oled_rotation_t rotation);

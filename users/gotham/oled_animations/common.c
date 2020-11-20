@@ -24,19 +24,19 @@ uint8_t rect_out_of_bounds(int16_t x, int16_t y, uint8_t width, uint8_t height, 
     if (x < -padding) {
         collision_map |= COLLISION_MASK_LEFT;
     }
-    if ((x + width) >= (OLED_DISPLAY_WIDTH + padding)) {
+    if ((x + width) >= (OLED_FINAL_WIDTH + padding)) {
         collision_map |= COLLISION_MASK_RIGHT;
     }
     if (y < -padding) {
         collision_map |= COLLISION_MASK_UP;
     }
-    if ((y + height) >= (OLED_DISPLAY_HEIGHT + padding)) {
+    if ((y + height) >= (OLED_FINAL_HEIGHT + padding)) {
         collision_map |= COLLISION_MASK_DOWN;
     }
     return collision_map;
 }
 
-bool point_out_of_bounds(int16_t x, int16_t y, int8_t padding) { return ((x < -padding) || (y < -padding) || (x > (OLED_DISPLAY_WIDTH + padding)) || (y > (OLED_DISPLAY_HEIGHT + padding))); }
+bool point_out_of_bounds(int16_t x, int16_t y, int8_t padding) { return ((x < -padding) || (y < -padding) || (x > (OLED_FINAL_WIDTH + padding)) || (y > (OLED_FINAL_HEIGHT + padding))); }
 
 static const uint8_t column_masks[8] = {1, 2, 4, 8, 16, 32, 64, 128};
 /*
@@ -44,7 +44,7 @@ static const uint8_t column_masks[8] = {1, 2, 4, 8, 16, 32, 64, 128};
  * the bottom of the screen and there's possibility for optimization.
  */
 void oled_write_bitmap(const uint8_t* data, int16_t x, int16_t y, uint8_t width, uint8_t height, bool erase) {
-    if ((x + width <= 0) || (x >= OLED_DISPLAY_WIDTH) || (y + height <= 0) || (y >= OLED_DISPLAY_HEIGHT)) {
+    if ((x + width <= 0) || (x >= OLED_FINAL_WIDTH) || (y + height <= 0) || (y >= OLED_FINAL_HEIGHT)) {
         return;
     }
     int16_t draw_x   = x;
@@ -58,15 +58,15 @@ void oled_write_bitmap(const uint8_t* data, int16_t x, int16_t y, uint8_t width,
         draw_x   = 0;
         draw_w   = x + width;
         sprite_x = -x;
-    } else if ((x + width) > OLED_DISPLAY_WIDTH) {
-        draw_w = OLED_DISPLAY_WIDTH - x;
+    } else if ((x + width) > OLED_FINAL_WIDTH) {
+        draw_w = OLED_FINAL_WIDTH - x;
     }
     if (y < 0) {
         draw_y   = 0;
         draw_h   = y + height;
         sprite_y = -y;
-    } else if ((y + height) > OLED_DISPLAY_HEIGHT) {
-        draw_h = OLED_DISPLAY_HEIGHT - y;
+    } else if ((y + height) > OLED_FINAL_HEIGHT) {
+        draw_h = OLED_FINAL_HEIGHT - y;
     }
     uint8_t sprite_y_row_offset = sprite_y / 8;
     uint8_t sprite_y_bit_offset = sprite_y % 8;
