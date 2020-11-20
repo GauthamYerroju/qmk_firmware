@@ -17,14 +17,39 @@
 #pragma once
 
 #define EE_HANDS
+
+// Bootmagic lite reset keys
+// Left half: top-left key
+#define BOOTMAGIC_LITE_ROW 0
+#define BOOTMAGIC_LITE_COLUMN 0
+// Right half: top-right key
+#define BOOTMAGIC_LITE_ROW_RIGHT 4
+#define BOOTMAGIC_LITE_COLUMN_RIGHT 0
+
+// Fix for Elite C rev3
 #define SPLIT_USB_DETECT
+// Speed up slave half startup
+#define SPLIT_USB_TIMEOUT 1000
 
-#undef USE_I2C
-#undef SSD1306OLED
+#define ENABLE_LAYOUT_COLEMAK
+// #define ENABLE_LAYOUT_COLEMAK_DH
+// #define ENABLE_LAYOUT_COLEMAK_DHM
+// #define ENABLE_LAYOUT_DVORAK
+// #define ENABLE_LAYOUT_WORKMAN
+#define ENABLE_LAYOUT_NORMAN
 
-#define USE_SERIAL_PD2
+#ifdef OLED_DRIVER_ENABLE
+#    define OLED_CUSTOM_TIMEOUT 30000
+#    define OLED_ROTATION OLED_ROTATION_270
+#    define OLED_INFO_TIMEOUT 2000
 
-#define IGNORE_MOD_TAP_INTERRUPT
+#    ifdef OLED_ANIMATIONS_ENABLE
+#        define OLED_ANIM_STARFIELD
+#        define OLED_ANIM_STARFIELD_WANDER
+// #        define OLED_ANIM_STARFIELD_DUALLAYER
+// #        define OLED_ANIM_IMAGE_BOUNCE
+#    endif
+#endif
 
 #define NO_ACTION_ONESHOT
 
@@ -34,7 +59,7 @@
 #    define AUDIO_CLICKY
 #endif
 
-#define OLED_FONT_H "keyboards/crkbd/keymaps/gotham/glcdfont.c"
+#define OLED_FONT_H "keyboards/crkbd/rev1/common/keymaps/gotham/glcdfont.c"
 
 #define RGBLIGHT_SLEEP
 
