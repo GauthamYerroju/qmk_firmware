@@ -1,0 +1,21 @@
+BOOTLOADER = caterina # Pro-micro
+
+BOOTMAGIC_ENABLE            = lite
+MOUSEKEY_ENABLE             = yes
+EXTRAKEY_ENABLE             = yes
+CONSOLE_ENABLE              = no
+COMMAND_ENABLE              = no
+NKRO_ENABLE                 = no
+BACKLIGHT_ENABLE            = no
+MIDI_ENABLE                 = no
+AUDIO_ENABLE                = no
+UNICODE_ENABLE              = no
+BLUETOOTH_ENABLE            = no
+RGBLIGHT_ENABLE             = yes
+RGB_MATRIX_ENABLE           = no # To enable: WS2812
+SWAP_HANDS_ENABLE           = no
+SLEEP_LED_ENABLE            = no
+OLED_DRIVER_ENABLE          = yes
+OLED_ANIMATIONS_ENABLE      = no
+LTO_ENABLE                  = yes
+COMBO_ENABLE           	    = yes
