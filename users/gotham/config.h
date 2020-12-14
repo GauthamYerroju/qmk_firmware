@@ -31,8 +31,11 @@
 #endif
 
 #ifdef COMBO_ENABLE
-#    define COMBO_COUNT 11
-#    define COMBO_TERM 30
+#    define COMBO_ALLOW_ACTION_KEYS
+#    define COMBO_VARIABLE_LEN
+#    ifndef COMBO_TERM
+#        define COMBO_TERM 30
+#    endif
 #endif
 
 #ifdef MOUSEKEY_ENABLE
