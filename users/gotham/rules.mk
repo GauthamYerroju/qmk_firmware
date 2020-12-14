@@ -8,7 +8,7 @@ ifneq ($(PLATFORM),CHIBIOS)
 endif
 
 ifeq ($(COMBO_ENABLE), yes)
-    SRC += $(USER_PATH)/combos.c
+	VPATH += keyboards/gboards
 endif
 
 ifeq ($(strip $(OLED_DRIVER_ENABLE)), yes)
