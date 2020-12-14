@@ -1,0 +1,11 @@
+// Gergoplex specfic combos 
+
+COMB(s2sEscape,         KC_ESC,         KC_DOT, KC_COMM)
+COMB(s2sControlA,       C(KC_A),        KC_A,   KC_LCTL)
+COMB(s2sTab,            KC_TAB,         KC_O,   KC_E)
+COMB(s2sShift,          KC_LSFT,        KC_Q,   KC_J)
+COMB(s2sUnderscore,     S(KC_SLSH),     KC_J,   KC_K)
+
+COMB(s2sBackspace,      KC_BSPC,        KC_C,   KC_R)
+COMB(s2sEnter,          KC_ENT,         KC_W,   KC_V)
+COMB(s2sControl,        KC_RCTL,        KC_V,   KC_Z)
