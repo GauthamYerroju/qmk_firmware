@@ -44,7 +44,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
 #define ENT_CTL MT(MOD_LCTL, KC_ENT)
 #define ENT_SFT MT(MOD_LSFT, KC_ENT)
 
-#define Gibson Holder LT(_LOWER, KC_SPC)
+#define SP_LOWR LT(_LOWER, KC_SPC)
 #define TB_LOWR LT(_LOWER, KC_TAB)
 #define BK_LOWR LT(_LOWER, KC_BSPC)
 #define EN_LOWR LT(_LOWER, KC_ENTER)
