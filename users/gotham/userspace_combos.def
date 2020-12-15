@@ -3,7 +3,7 @@
 |     |    Esc    |     |     |      |     |     |    Eql    |     |
 |-----+-----+-----+-----+-----|      |-----------------------------|
 |     |  Tab   |   GUI  |     |      |     |  Quot  |  Mins  |     |
-|-----+-----+-----+VolD-+VolU-+      |-----------------------------|
+|-----+-----+-----+VolU-+VolD-+      |-----------------------------|
 |     |     |  Undo  |  Redo  |      |     |     |    Unds   |     |
 `-----+-----+-----+-----+-----'      `-----------------------------'
               .-----------------.  .-----------------.
@@ -14,8 +14,8 @@
 COMB(esc_combo,     KC_ESC,                 KC_W, KC_E)
 COMB(tab_combo,     KC_TAB,                 KC_S, KC_D)
 COMB(gui_combo,     KC_LGUI,                KC_D, KC_F)
-COMB(vold_combo,    KC_VOLD,                KC_F, KC_V)
-COMB(volu_combo,    KC_VOLU,                KC_G, KC_B)
+COMB(vold_combo,    KC_VOLD,                KC_G, KC_B)
+COMB(volu_combo,    KC_VOLU,                KC_F, KC_V)
 COMB(eql_combo,     KC_EQL,                 KC_I, KC_O)
 COMB(quot_combo,    KC_QUOT,                KC_J, KC_K)
 COMB(mins_combo,    KC_MINS,                KC_K, KC_L)
