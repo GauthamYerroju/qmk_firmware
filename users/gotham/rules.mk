@@ -3,11 +3,11 @@ SPLIT_TRANSPORT = custom
 SRC += gotham.c \
        process_records.c
 
-ifneq ($(PLATFORM),CHIBIOS)
-    LTO_ENABLE        = yes
+ifneq ($(strip $(PLATFORM)), CHIBIOS)
+    LTO_ENABLE = yes
 endif
 
-ifeq ($(COMBO_ENABLE), yes)
+ifeq ($(strip $(COMBO_ENABLE)), yes)
 	VPATH += keyboards/gboards
 endif
 

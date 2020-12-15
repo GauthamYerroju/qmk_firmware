@@ -116,8 +116,8 @@ For instance Tap/Hold for Control on all of the layouts
 
 #define ________________VIM_ARROWS_________________ KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______
 
-#define ___________________NAV1____________________ KC_PGUP, KC_LEFT, KC_UP,   KC_RIGHT, KC_PGUP
-#define ___________________NAV2____________________ KC_PGDN, KC_HOME, KC_DOWN, KC_END,   KC_PGDN
+#define ___________________NAV1____________________ KC_PGUP, KC_LEFT, KC_UP,   KC_RIGHT, _______
+#define ___________________NAV2____________________ KC_PGDN, KC_HOME, KC_DOWN, KC_END,   _______
 
 #define __________________MOUSE1___________________ KC_NO,   KC_BTN4, KC_BTN3, KC_BTN5, KC_NO
 #define __________________MOUSE2___________________ KC_WH_U, KC_MS_L, KC_MS_U, KC_MS_R, KC_WH_U
@@ -173,7 +173,7 @@ For instance Tap/Hold for Control on all of the layouts
 #define _________________ADJUST_L3_________________ MU_TOG,  RGB_SAD, RGB_VAD, RGB_HUD, CG_TOGG
 
 #define _________________ADJUST_R1_________________ __________________FN_RIGHT_________________
-#define _________________ADJUST_R2_________________ RESET,   KC_MAKE, VRSN,    KC_F11,  KC_F12
+#define _________________ADJUST_R2_________________ RESET,     KC_MAKE, VRSN,    KC_F11,  KC_F12
 #define _________________ADJUST_R3_________________ KC_LAYOUT, CMB_TOG, _______, _______, _______
 
 
