@@ -154,9 +154,9 @@ For instance Tap/Hold for Control on all of the layouts
 #define _________________LOWER_L2__________________ KC_EXLM, KC_AT,   KC_LPRN, KC_RPRN, KC_GRV
 #define _________________LOWER_L3__________________ KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD
 
-#define _________________LOWER_R1__________________ KC_EXLM, KC_AMPR, KC_EQL,  KC_PIPE, KC_BSLS
-#define _________________LOWER_R2__________________ KC_PLUS, KC_MINS, KC_ASTR, KC_PERC, KC_QUOT
-#define _________________LOWER_R3__________________ KC_GRV,  KC_UNDS, KC_COMM, KC_DOT,  KC_SLSH
+#define _________________LOWER_R1__________________ KC_NO,   KC_PIPE, KC_EQL,  KC_AMPR, KC_BSLS
+#define _________________LOWER_R2__________________ KC_ASTR, KC_PLUS, KC_MINS, KC_PERC, KC_QUOT
+#define _________________LOWER_R3__________________ KC_NO,   KC_PIPE, KC_UNDS, KC_AMPR, KC_SLSH
 
 
 #define _________________RAISE_L1__________________ ________________NUMBER_LEFT________________
