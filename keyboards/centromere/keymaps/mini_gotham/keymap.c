@@ -16,6 +16,7 @@
 
 #include QMK_KEYBOARD_H
 #include "gotham.h"
+#include "g/keymap_combo.h"
 
 /*
  * The `LAYOUT_centromere_mini_mods` macro is a template to allow the use of identical
