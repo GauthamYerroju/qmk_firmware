@@ -1,25 +1,37 @@
 /*
 ,-----------------------------.      ,-----------------------------.
-|     |    Esc    |     |     |      |     |     |    Eql    |     |
-|-----+-----+-----+-----+-----|      |-----------------------------|
-|     |  Tab   |   GUI  |     |      |     |  Quot  |  Mins  |     |
-|-----+-----+-----+VolU-+VolD-+      |-----------------------------|
-|     |     |  Undo  |  Redo  |      |     |     |    Unds   |     |
+|     |    Esc    |     |     |      |     |     |   Eql     |     |
+|-----+-----+-----+-Up--+VolU-|      |-------Up--------------------|
+|     |    Tab   Lft   Rgt    |      |    Lft   Rgt  Mins    |     |
+|-----+-----+-----+-Dwn-+VolD-+      |-Quot--Dwn-------------------|
+|     |    Undo   |     |     |      |    Quot   |   Unds    |     |
 `-----+-----+-----+-----+-----'      `-----------------------------'
               .-----------------.  .-----------------.
               |     |     |     |  |     |     |     |
               '-----------------'  '-----------------'
 */
 
+// Left Hand
 COMB(esc_combo,     KC_ESC,                 KC_W, KC_E)
 COMB(tab_combo,     KC_TAB,                 KC_S, KC_D)
-COMB(gui_combo,     KC_LGUI,                KC_D, KC_F)
+SUBS(undo_combo,    SS_LCTL("z"),           KC_X, KC_C)
+COMB(volu_combo,    KC_VOLU,                KC_P, KC_G)
 COMB(vold_combo,    KC_VOLD,                KC_G, KC_B)
-COMB(volu_combo,    KC_VOLU,                KC_F, KC_V)
+
+COMB(lh_up_combo,   KC_UP,                  KC_R, KC_F)
+COMB(lh_dwn_combo,  KC_DOWN,                KC_F, KC_V)
+COMB(lh_lft_combo,  KC_LEFT,                KC_D, KC_F)
+COMB(lh_rgt_combo,  KC_RIGHT,               KC_F, KC_G)
+
+
+// Right Hand
 COMB(eql_combo,     KC_EQL,                 KC_I, KC_O)
-COMB(quot_combo,    KC_QUOT,                KC_J, KC_K)
 COMB(mins_combo,    KC_MINS,                KC_K, KC_L)
 COMB(unds_combo,    KC_UNDS,                KC_COMM, KC_DOT)
+COMB(quot_combo_1,  KC_QUOT,                KC_H, KC_N)
+COMB(quot_combo_2,  KC_QUOT,                KC_N, KC_M)
 
-SUBS(undo_combo,    SS_LCTL("z"),           KC_C, KC_V)
-SUBS(redo_combo,    SS_LCTL(SS_DOWN(X_LSFT)"z"SS_UP(X_LSFT)),   KC_V, KC_B)
+COMB(rh_up_combo,   KC_UP,                  KC_U, KC_J)
+COMB(rh_dwn_combo,  KC_DOWN,                KC_J, KC_M)
+COMB(rh_lft_combo,  KC_LEFT,                KC_H, KC_J)
+COMB(rh_rgt_combo,  KC_RIGHT,               KC_J, KC_K)
