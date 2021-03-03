@@ -20,17 +20,6 @@
 #    include "oled.c"
 #endif
 
-enum custom_keycodes {
-    ENC_MODE_L = NEW_SAFE_RANGE,
-    ENC_MODE_R,
-    TMB_MODE,
-};
-
-enum encoder_offsets {
-    ENCODER_LEFT = 0,
-    ENCODER_RIGHT,
-};
-
 /*
  * The `LAYOUT_corne_base` macro is a template to allow the use of identical
  * modifiers for the default layouts (eg QWERTY, Colemak, Dvorak, etc), so
@@ -49,7 +38,7 @@ enum encoder_offsets {
       _______, K01, K02, K03, K04, K05,                 K06, K07, K08, K09, K0A, KC_BSLS, \
       _______, K11, K12, K13, K14, K15,                 K16, K17, K18, K19, K1A, KC_QUOT, \
       _______, K21, K22, K23, K24, K25,                 K26, K27, K28, K29, K2A, _______, \
-                    KC_LGUI, SP_LOWR, TB_RAIS,  EN_LOWR,  BK_RAIS, MS_DEL \
+                    KC_LGUI, SP_LOWR, TAB_CTL,  ENT_CTL,  BK_RAIS, MS_DEL \
     )
 #define LAYOUT_corne_mods( \
     K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, \
@@ -57,10 +46,10 @@ enum encoder_offsets {
     K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A  \
   ) \
   LAYOUT_wrapper( \
-      _______, LALT_T(K01), K02, K03, K04, K05,                 K06, K07, K08, K09, RALT_T(K0A), KC_BSLS, \
-      _______, LSFT_T(K11), K12, K13, K14, K15,                 K16, K17, K18, K19, RSFT_T(K1A), KC_QUOT, \
-      _______, LCTL_T(K21), K22, K23, K24, K25,                 K26, K27, K28, K29, RCTL_T(K2A), _______, \
-                                    KC_LGUI, SP_LOWR, TB_RAIS,  EN_LOWR,  BK_RAIS, MS_DEL \
+      KC_ESC,  LALT_T(K01), K02, K03, K04, K05,                 K06, K07, K08, K09, RALT_T(K0A), KC_BSLS, \
+      KC_LSFT, LSFT_T(K11), K12, K13, K14, K15,                 K16, K17, K18, K19, RSFT_T(K1A), KC_QUOT, \
+      KC_LCTL, LCTL_T(K21), K22, K23, K24, K25,                 K26, K27, K28, K29, RCTL_T(K2A), KC_MINS, \
+                                    KC_LGUI, SP_LOWR, TAB_CTL,  ENT_CTL,  BK_RAIS, MS_DEL \
     )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_corne_base_wrapper(...)       LAYOUT_corne_base(__VA_ARGS__)
@@ -180,38 +169,3 @@ layer_state_t default_layer_state_set_keymap(layer_state_t state) {
 #endif
     return state;
 }
-
-#ifdef THUMBSTICK_ENABLE
-void thumbstick_init_keymap(void) { thumbstick_mode_set(THUMBSTICK_MODE_SCROLL); }
-
-bool process_record_keymap_thumbstick(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case TMB_MODE:
-            if (record->event.pressed) {
-                thumbstick_mode_cycle_forward();
-            }
-    }
-    return true;
-}
-#endif
-
-#ifdef ENCODER_ENABLE
-void encoder_init_keymap(void) {
-    encoder_mode_set(ENCODER_HAND_LEFT, ENC_MODE_VOLUME);
-    encoder_mode_set(ENCODER_HAND_RIGHT, ENC_MODE_LEFT_RIGHT);
-}
-
-bool process_record_keymap_encoder(uint16_t keycode, keyrecord_t *record) {
-    if (record->event.pressed) {
-        switch (keycode) {
-            case ENC_MODE_L:
-                encoder_mode_next(ENCODER_HAND_LEFT);
-                return false;
-            case ENC_MODE_R:
-                encoder_mode_next(ENCODER_HAND_RIGHT);
-                return false;
-        }
-    }
-    return true;
-}
-#endif
