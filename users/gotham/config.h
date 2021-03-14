@@ -32,7 +32,7 @@
 
 #ifdef COMBO_ENABLE
 #    define COMBO_ALLOW_ACTION_KEYS
-#    define COMBO_VARIABLE_LEN
+#    define COMBO_COUNT 18
 #    ifndef COMBO_TERM
 #        define COMBO_TERM 30
 #    endif
