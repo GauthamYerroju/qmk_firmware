@@ -61,11 +61,11 @@ For instance Tap/Hold for Control on all of the layouts
 #define ______________COLEMAK_MOD_DH_R3____________ KC_M,    KC_H,    KC_COMM, KC_DOT,  KC_SLASH
 
 
-#define _____________COLEMAK_MOD_DHM_L1____________ KC_Q,    KC_W,    KC_F,    KC_P,    KC_B
-#define _____________COLEMAK_MOD_DHM_L2____________ KC_A,    KC_R,    KC_S,    KC_T,    KC_G
-#define _____________COLEMAK_MOD_DHM_L3____________ KC_Z,    KC_X,    KC_C,    KC_D,    KC_V
+#define _____________COLEMAK_MOD_DHM_L1____________ ______________COLEMAK_MOD_DH_L1____________
+#define _____________COLEMAK_MOD_DHM_L2____________ ______________COLEMAK_MOD_DH_L2____________
+#define _____________COLEMAK_MOD_DHM_L3____________ ______________COLEMAK_MOD_DH_L3____________
 
-#define _____________COLEMAK_MOD_DHM_R1____________ KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN
+#define _____________COLEMAK_MOD_DHM_R1____________ ______________COLEMAK_MOD_DH_R1____________
 #define _____________COLEMAK_MOD_DHM_R2____________ KC_M,    KC_N,    KC_E,    KC_I,    KC_O
 #define _____________COLEMAK_MOD_DHM_R3____________ KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLASH
 
@@ -156,7 +156,7 @@ For instance Tap/Hold for Control on all of the layouts
 
 #define _________________LOWER_R1__________________ KC_NO,   KC_PIPE, KC_EQL,  KC_AMPR, KC_BSLS
 #define _________________LOWER_R2__________________ KC_ASTR, KC_PLUS, KC_MINS, KC_PERC, KC_QUOT
-#define _________________LOWER_R3__________________ KC_NO,   KC_PIPE, KC_UNDS, KC_AMPR, KC_SLSH
+#define _________________LOWER_R3__________________ KC_NO,   KC_PIPE, KC_UNDS, KC_AMPR, KC_BSLS
 
 
 #define _________________RAISE_L1__________________ ________________NUMBER_LEFT________________
